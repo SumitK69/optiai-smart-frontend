@@ -1,11 +1,12 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 100% 35%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -95,7 +89,66 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  .container {
+    @apply px-4 md:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+
+  .section {
+    @apply py-12 md:py-20;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground mb-10 text-center max-w-3xl mx-auto;
+  }
+  
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-optiblue-500 to-optiblue-700;
+  }
+  
+  .btn-primary {
+    @apply bg-optiblue-500 hover:bg-optiblue-600 text-white font-medium py-2 px-6 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply border border-optiblue-500 text-optiblue-500 hover:bg-optiblue-50 font-medium py-2 px-6 rounded-md transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden;
+  }
+  
+  .tech-grid {
+    @apply grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 items-center justify-center;
+  }
+  
+  .tech-item {
+    @apply flex flex-col items-center justify-center p-4;
+  }
+  
+  .tech-icon {
+    @apply w-12 h-12 mb-2 text-optiblue-500;
   }
 }
